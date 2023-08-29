@@ -1,0 +1,175 @@
+<html>
+<head>
+  <title>
+    Compile it
+  </title>
+  <link rel="icon" type="image/x-icon" href="icon.jpg">
+  <meta name="viewport"
+  content="width=device-width,
+  initial-scale=1">
+  <link rel="stylesheet" href="Devil.css" />
+</head>
+<body>
+
+<div class="nav">
+<div class="logo">
+<img class="img" src="Logo.png" />
+</div>
+<div class="options">
+<button type="button" class="options-btn" id='menu'> Menu</button>
+
+</div>
+</div>
+<div class="menu-option" id="menu-option"> 
+<div class="z parent">
+<li class="list"><a class="convertions" href="Txt-bin.html">Text &harr; Binary</a></li>
+
+
+<li class="list"><a class="convertions" href="Bin-hex.html">Binary &harr; Hexadecimal</a></li>
+
+
+<li class="list"><a class="convertions" href="Bin-oct.html">Binary &harr; Octal</a></li>
+
+
+<li class="list"><a class="convertions" href="Dec-hex.html">Decimal &harr; Hexadecimal</a></li>
+
+
+<li class="list"><a class="convertions" href="Oct-dec.html">Decimal &harr; Octal</a></li>
+
+
+<li class="list"><a class="convertions" href="Oct-hex.html">Octal &harr; Hexadecimal </a></li>
+
+<li class="list"><a class="convertions" href="Devil.html">Binary &harr; Decimal </a></li>
+
+
+<li class="list k"><a class="p convertions" href="mailto:sharmaparbin91@gmail.com">Contact</a></li>
+</div>
+</div>
+<img class="banner" src="banner.jpg" />
+<div class="parent">
+
+<p class="alert" id="error-msg"></p>
+</div>
+
+
+
+
+<div class="parent" style="dislay:flex;justify-content:center;">
+<div class="box">
+<p class="c" id="intro">
+
+</p>
+<br />
+<p class="d" id="intro2">
+is a app based on an algorithm which converts different Number Systems of computer.<!--Examples:Binary,Octal,Decimal, Hexadecimal.-->
+</p>
+</div>
+</div>
+
+
+
+
+<div class="parent" style="dislay:flex;justify-content:center;">
+<div class="container">
+<div class="wrapper">
+<div class="wrapper2">
+<p class="heading">
+Convert
+</p>
+<div class="inputs">
+<!--<label for="bin-inp" class="label">Binary</label>-->
+<input class="input" placeholder="Binary Numbers" max="1" min="0" type="number" id="bin-inp" />
+<!--<label for="dec-inp" class="label">Binary</label>-->
+<input class="input" placeholder="Decimal Numbers" type="number" id="dec-inp" />
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+<script>
+window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
+
+
+let i = 0;
+let txt = 'Compile it! ';
+let speed = 100; 
+
+window.onload=function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("intro").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+} ;
+
+let decInp = document.getElementById("dec-inp");
+let binInp = document.getElementById("bin-inp");
+//let txtInp = document.getElementById("text-inp");
+let errorMsg = document.getElementById("error-msg");
+//Convert decimal to binary when user inputs in the decimal field
+decInp.addEventListener("input", () => {
+  let decValue = parseInt(decInp.value);
+  //Converts the decimal value to binary
+  binInp.value = decValue.toString(2);
+});
+//Convert binary to decimal when user inputs in the binary field
+binInp.addEventListener("input", () => {
+  let binValue = binInp.value;
+  //If the binary number is valid convert it to decimal
+  if (binValidator(binValue)) {
+    decInp.value = parseInt(binValue, 2);
+   // let binary= binValue.split(" ");
+   
+//txtInp.value= binary.map(elem=>String.fromCharCode(parseInt(elem,2))).join("");
+    errorMsg.textContent = "";
+    errorMsg.style.display="none";
+  }
+  //Else display an error message
+  else {
+    errorMsg.textContent = "Please Enter An Valid Binary Input";
+    errorMsg.style.display="block";
+  }
+  //Function to check if the binary number is valid i.e it does not contain any number other than 0 and 1
+  function binValidator(num) {
+    for (let i = 0; i < num.length; i++) {
+      if (num[i] != "0" && num[i] != "1") {
+        return false;
+      }
+    }
+    return true;
+  }
+});
+document.getElementById('bin-inp').addEventListener('input', function (e) {
+
+  e.target.value = e.target.value.replace(/[^0-1]/g, '').replace(/(.{20})/g, '$1 ').trim();
+});
+
+
+
+let toggle=document.getElementById("menu");
+let menu=document.getElementById("menu-option");
+toggle.onclick = function(){
+  if (menu.style.display!=="none") {
+    menu.style.display='none';
+  }else{
+    menu.style.display="block";
+  }
+}
+
+
+
+
+</script
+
+</html>

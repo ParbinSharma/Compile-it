@@ -1,0 +1,127 @@
+<!--  -->
+
+<html>
+<head>
+  <title>
+    Compile it
+  </title>
+  <link rel="icon" type="image/x-icon" href="icon.jpg">
+  <meta name="viewport"
+  content="width=device-width,
+  initial-scale=1">
+  <link rel="stylesheet" href="Devil.css" />
+</head>
+<body>
+
+<div class="nav">
+<div class="logo">
+<img class="img" src="Logo.png" />
+</div>
+<div class="options">
+<button type="button" class="options-btn" id='menu'> Menu</button>
+
+</div>
+</div>
+<div class="menu-option" id="menu-option"> 
+<div class="parent">
+<li class="list"><a class="convertions" href="Txt-bin.html">Text &harr; Binary</a></li>
+
+
+<li class="list"><a class="convertions" href="Bin-hex.html">Binary &harr; Hexadecimal</a></li>
+
+
+<li class="list"><a class="convertions" href="Bin-oct.html">Binary &harr; Octal</a></li>
+
+
+<li class="list"><a class="convertions" href="Dec-hex.html">Decimal &harr; Hexadecimal</a></li>
+
+
+<li class="list"><a class="convertions" href="Oct-dec.html">Decimal &harr; Octal</a></li>
+
+
+<li class="list"><a class="convertions" href="Oct-hex.html">Octal &harr; Hexadecimal </a></li>
+
+
+<li class="list"><a class="convertions" href="index.html">Binary &harr; Decimal </a></li>
+
+
+<li class="list k"><a class="p convertions" href="mailto:sharmaparbin91@gmail.com">Contact</a></li>
+</div>
+</div>
+<img class="banner" src="img4.jpg" />
+<div class="parent">
+
+<p class="alert" id="error-msg"></p>
+</div>
+<div class="parent" style="dislay:flex;justify-content:center;">
+  <div class="box" style="margin-top:30px">
+    <div class="d">
+ Octal to Hexadecimal: Convert octal to binary first, then group the binary digits into sets of four and represent each set with its corresponding hexadecimal digit. For example, octal "34" becomes binary "011100," which converts to hexadecimal "1C".
+</div>
+</div>
+</div>
+ 
+<div class="parent" style="dislay:flex;justify-content:center;">
+<div class="container">
+<div class="wrapper">
+<div class="wrapper2">
+<p class="heading">
+Convert
+</p>
+<div class="inputs">
+<!--<label for="bin-inp" class="label">Binary</label>-->
+<input class="input" placeholder="Hexadecimal Numbers" type="number" id="hex-inp" />
+<!--<label for="dec-inp" class="label">Binary</label>-->
+<input class="input" placeholder="Octal Numbers" type="number" id="oct-inp" />
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<script>
+let toggle=document.getElementById("menu");
+let menu=document.getElementById("menu-option");
+toggle.onclick = function(){
+   if (menu.style.display!=="none") {
+    menu.style.display='none';
+  }else{
+    menu.style.display="block";
+  } 
+ 
+}
+window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
+
+
+
+
+let hexInp = document.getElementById("hex-inp");
+let octInp = document.getElementById("oct-inp");
+
+//Convert decimal to binary when user inputs in the decimal field
+octInp.addEventListener("input", () => {
+  hexInp.value =  parseInt(octInp.value,8).toString(16);
+});
+
+hexInp.addEventListener("input", () => {
+  octInp.value =  parseInt(hexInp.value,16).toString(8);
+  
+});
+
+
+
+
+
+</script>
+
+
+</html>

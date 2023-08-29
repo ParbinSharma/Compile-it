@@ -1,0 +1,130 @@
+<html>
+<head>
+  <title>
+    Compile it
+  </title>
+  <link rel="icon" type="image/x-icon" href="icon.jpg">
+  <meta name="viewport"
+  content="width=device-width,
+  initial-scale=1">
+  <link rel="stylesheet" href="Devil.css" />
+
+</head>
+<body>
+
+<div class="nav">
+<div class="logo">
+<img class="img" src="Logo.png" />
+</div>
+<div class="options">
+<button type="button" class="options-btn" id='menu' > Menu</button>
+</div>
+</div>
+<div class="menu-option" id="menu-option">
+<div class="parent">
+<li class="list"><a class="convertions" href="Txt-bin.html">Text &harr; Binary</a></li>
+
+
+<li class="list"><a class="convertions" href="Bin-hex.html">Binary &harr; Hexadecimal</a></li>
+
+
+<li class="list"><a class="convertions" href="Bin-oct.html">Binary &harr; Octal</a></li>
+
+
+<li class="list"><a class="convertions" href="Dec-hex.html">Decimal &harr; Hexadecimal</a></li>
+
+
+<li class="list"><a class="convertions" href="Oct-dec.html">Decimal &harr; Octal</a></li>
+
+
+<li class="list"><a class="convertions" href="Oct-hex.html">Octal &harr; Hexadecimal </a></li>
+
+<li class="list"><a class="convertions" href="index.html">Binary &harr; Decimal </a></li>
+
+<li class="list k"><a class="p convertions" href="mailto:sharmaparbin91@gmail.com">Contact</a></li>
+</div>
+</div>
+
+
+
+<img class="banner" src="binary.jpg" />
+<div class="parent">
+
+<p class="alert" id="error-msg"></p>
+</div>
+
+<div class="parent" style="dislay:flex;justify-content:center;">
+  <div class="box">
+    <div class="d">
+      
+      Text to binary conversion involves representing text characters using their corresponding binary codes (0s and 1s), while binary to text conversion is the process of decoding binary codes back into readable text characters.
+    </div>
+  </div>
+  </div>
+
+<!--  -->
+<div class="parent" style="dislay:flex;justify-content:center;">
+<div class="container" style='height:250px'>
+<div class="wrapper" style='height:250px'>
+<div class="wrapper2" style='height:auto'>
+<p class="heading">
+Convert
+</p>
+<div class="inputs">
+<!--<label for="bin-inp" class="label">Binary</label>-->
+<div class="parent">
+  
+<p class="display" style='height:auto;border-radius:10px' id="bin-inp">1001000 1100101 1101100 1101100 1101111 100000 1010111 1101111 1110010 1101100 1100100</p>
+</div>
+<!--<label for="dec-inp" class="label">Binary</label>-->
+<input class="input" placeholder="Alphabets" type="text" id="txt-inp" style="margin-bottom:10px" value="Hello World" />
+<button class="convert" onclick="convert();">Convert</button>
+<!-- <input class="input" placeholder="Alphabets" type="text" id="text-inp" /> -->
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</body>
+
+<script>
+
+
+function convert(){
+  let binInp = document.getElementById("bin-inp");
+let txtInp = document.getElementById("txt-inp").value;
+binInp.innerHTML='';
+  for (var i = 0; i < txtInp.length; i++){
+    binInp.innerHTML += txtInp[i].charCodeAt(0).toString(2) + " ";
+  }
+}
+
+
+
+
+
+
+
+let toggle=document.getElementById("menu");
+let menu=document.getElementById("menu-option");
+toggle.onclick = function(){
+   if (menu.style.display!=="none") {
+    menu.style.display='none';
+  }else{
+    menu.style.display="block";
+  } 
+ 
+}
+window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
+</script>
+
+</html>
