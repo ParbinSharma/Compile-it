@@ -99,7 +99,7 @@ function convert(){
 let txtInp = document.getElementById("txt-inp").value;
 binInp.innerHTML='';
   for (var i = 0; i < txtInp.length; i++){
-    binInp.innerHTML += txtInp[i].charCodeAt(0).toString(2) + " ";
+    binInp.innerHTML += txtInp[i].charCodeAt(0).toString(2);
   }
 }
 
